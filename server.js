@@ -27,6 +27,11 @@ app.get('/feedback', (req, res) =>
   res.sendFile(path.join(__dirname, '/public/pages/feedback.html'))
 );
 
+// Fallback route for when a user attempts to visit routes that don't exist
+app.get('*', (req, res) => {
+  res.send(`Please return to previous page`)
+})
+
 app.listen(PORT, () =>
   console.log(`App listening at http://localhost:${PORT}`)
 );
